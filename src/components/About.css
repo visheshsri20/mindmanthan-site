@@ -1,0 +1,172 @@
+/* Styling for About page with improved hero section visuals and animations */
+.about-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #f1f5f9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: transparent;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.about-hero {
+  position: relative;
+  background:transparent;
+  padding: 0rem 2rem 8rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  margin-top:  0rem;
+  overflow: hidden;
+  color: white;
+  
+  border-radius: 1rem;
+  margin-top: 10;
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+.about-hero::before {
+  content: "";
+  position: absolute;
+  margin-top: 0;
+  bottom: 0;
+  left: 0;
+  width: 250px;
+  height: 250px;
+  background-image: url('../assets/images/About-hero.png');
+  background-size: contain;
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.about-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.about-hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #3b82f6;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.about-hero p {
+  font-size: 1.2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  color: #e2e8f0;
+  line-height: 1.8;
+}
+
+.about-hero .hero-buttons {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.about-hero .hero-buttons button {
+  padding: 0.75rem 1.75rem;
+  font-size: 1rem;
+  background-color: white;
+  color: #1e3a8a;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 600;
+}
+
+.about-hero .hero-buttons button:hover {
+  background-color: #e0e7ff;
+}
+
+.about-section {
+  background:transparent;
+  backdrop-filter: blur(16px);
+  
+  border-radius: 1rem;
+  margin-bottom: 2.5rem;
+  padding: 2rem 2.5rem;
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+.about-section h2 {
+  font-size: 3rem;
+  color: #3b82f6;
+  margin-bottom: 1.25rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.about-section p {
+  font-size: 1.2rem;
+  background: transparent;
+  line-height: 1.8;
+  color: #f1f5f9;
+  text-align: justify;
+}
+
+.about-section ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #ffffff;
+}
+
+.about-footer {
+  background: rgba(235, 231, 231, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.about-footer h3 {
+  font-size: 1.5rem;
+  color: #60a5fa;
+  margin-bottom: 1rem;
+}
+
+.about-footer p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #e2e8f0;
+}
+
+@media (max-width: 768px) {
+  .about-hero h1 {
+    font-size: 2rem;
+  }
+  .about-wrapper {
+    padding: 1rem;
+  }
+  .about-hero .hero-buttons {
+    flex-direction: column;
+  }
+  .about-section {
+    padding: 1.5rem;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

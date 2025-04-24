@@ -1,0 +1,215 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(rgba(0, 0, 128, 0.7), rgba(0, 0, 128, 0.7)),
+      url('../assets/images/background-image.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-blend-mode: overlay;
+  }
+  
+  .main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .hero-section {
+    max-width: 800px;
+    padding: 3rem 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+  
+  @keyframes fadeSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .hero-subtitle {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #ccc;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeSlideUp 1s ease-in-out forwards;
+    animation-delay: 1.2s; /* This syncs with title typing */
+  }
+  
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .primary-btn,
+  .secondary-btn {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+  }
+  
+  .primary-btn {
+    background-color: #fff;
+    color: #001f3f;
+  }
+  
+  .primary-btn:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .secondary-btn {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+  }
+  
+  .secondary-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* ✅ Universal Responsive Enhancements for All Screens */
+@media (max-width: 768px) {
+  .card,
+  .card.left,
+  .card.right,
+  .content-wrapper,
+  .content-text,
+  .content-image,
+  .service-card,
+  .stat-card,
+  .reason-card,
+  .faq-item,
+  .hero,
+  .logo-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: auto !important;
+  }
+
+  .logo-row {
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .tech-logo {
+    width: 80px !important;
+  }
+
+  .hero h1,
+  .reason-title,
+  .section-title {
+    font-size: 1.8rem !important;
+  }
+
+  .card-content,
+  .faq-answer,
+  .service-card p,
+  .section-description,
+  .stat-card p {
+    font-size: 0.95rem !important;
+  }
+
+  .stat-card .count,
+  .hero .highlight {
+    font-size: 2.5rem !important;
+  }
+
+  .read-more {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .faq-title,
+  .client-title {
+    font-size: 1.8rem !important;
+  }
+
+  .faq-toggle {
+    font-size: 1.3rem;
+  }
+
+  .gif-glow-wrapper img {
+    max-width: 100% !important;
+  }
+
+  .hero-logo {
+    width: 160px !important;
+    margin-bottom: 1rem;
+  }
+
+  .service-card {
+    max-width: 100% !important;
+    flex: 1 1 100% !important;
+  }
+
+  .reason-grid {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+
+  .faq-answer {
+    text-align: left;
+  }
+}
+
+/* Tablet View Tweaks */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .logo-row {
+    gap: 40px;
+  }
+
+  .tech-logo {
+    width: 90px;
+  }
+
+  .card-content {
+    font-size: 1rem;
+  }
+
+  .hero h1,
+  .section-title,
+  .reason-title {
+    font-size: 2.2rem;
+  }
+
+  .stat-card .count {
+    font-size: 3rem;
+  }
+
+  .service-card {
+    flex: 1 1 45%;
+  }
+}
+
+/* Maintains all base styles, adds only responsive control */
