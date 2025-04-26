@@ -1,4 +1,4 @@
-/* Styling for About page with improved hero section visuals and animations */
+
 .about-wrapper {
   max-width: 1100px;
   margin: 0 auto;
@@ -160,7 +160,7 @@
   }
 }
 
-@keyframes fadeInUp {
+@keyframes fadeInUp { 
   from {
     opacity: 0;
     transform: translateY(30px);
