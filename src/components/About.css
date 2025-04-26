@@ -89,16 +89,117 @@
 }
 
 .about-section {
-  background:transparent;
-  backdrop-filter: blur(16px);
-  
+  background: transparent url('../assets/images/business-people.png') no-repeat center / cover;
+  background-size: cover;
   border-radius: 1rem;
   margin-bottom: 2.5rem;
   padding: 2rem 2.5rem;
   animation: fadeInUp 1.5s ease-in-out;
+  color: #fff; /* Optional: improve text visibility */
+}
+.about-section1 {
+  position: relative;
+  z-index: 1;
+  border-radius: 1rem;
+  margin-bottom: 2.5rem;
+  padding: 2rem 2.5rem;
+  animation: fadeInUp 1.5s ease-in-out;
+  color: #fff;
+  min-height: 800px;
+  overflow: hidden;
 }
 
+
+.about-section1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('../assets/images/whoweare.png') no-repeat center center;
+  background-size: cover;
+  opacity: 0.5;
+  z-index: -1;
+  border-radius: 1rem;
+}
+
+.about-section2 {
+  position: relative;
+  z-index: 1;
+  border-radius: 1rem;
+  margin-bottom: 2.5rem;
+  padding: 2rem 2.5rem;
+  min-height: 800px;
+  animation: fadeInUp 1.5s ease-in-out;
+  color: #fff;
+  overflow: hidden;
+}
+
+.about-section2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../assets/images/technology.png') no-repeat center center;
+  background-size: cover;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.about-section3 {
+  position: relative;
+  z-index: 1;
+  padding: 2rem 2.5rem;
+  color: #fff;
+  min-height: 800px;
+  border-radius: 1rem;
+  margin-bottom: 2.5rem;
+  animation: fadeInUp 1.5s ease-in-out;
+  overflow: hidden;
+}
+
+.about-section3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../assets/images/whyus.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain; /* <<< switch to contain */
+  opacity: 0.5;
+  z-index: -1;
+  background-color: transparent;
+}
+
+
 .about-section h2 {
+  font-size: 3rem;
+  color: #3b82f6;
+  margin-bottom: 1.25rem;
+  text-align: center;
+  font-weight: 700;
+}
+.about-section1 h2 {
+  font-size: 3rem;
+  color: #3b82f6;
+  margin-bottom: 1.25rem;
+  text-align: center;
+  font-weight: 700;
+}
+.about-section2 h2 {
+  font-size: 3rem;
+  color: #3b82f6;
+  margin-bottom: 1.25rem;
+  text-align: center;
+  font-weight: 700;
+}
+.about-section3 h2 {
   font-size: 3rem;
   color: #3b82f6;
   margin-bottom: 1.25rem;
@@ -114,6 +215,13 @@
   text-align: justify;
 }
 
+.about-section1 p {
+  font-size: 1.2rem;
+  background: transparent;
+  line-height: 1.8;
+  color: #f1f5f9;
+  text-align: justify;
+}
 .about-section ul {
   list-style-type: disc;
   padding-left: 1.5rem;
@@ -169,4 +277,73 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+.about-footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 1rem;
+  color: #fff;
+  margin-top: 2rem;
+}
+
+.about-footer h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #00bfff;
+}
+
+.about-footer p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #e0e0e0;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-form label {
+  align-self: flex-start;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  outline: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #ccc;
+}
+
+.contact-form button {
+  background-color: #00bfff;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #009acd;
 }
