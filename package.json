@@ -5,6 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "react-scripts start",
+    "postinstall": "chmod -R 755 node_modules/.bin/",
     "build": "react-scripts build"
   },
   "engines": {
