@@ -4,7 +4,7 @@ import backgroundImage from '../assets/images/contentthird-background.jpg';
 import heroLogo from '../assets/images/hero-logo.png';
 
 const About = () => {
-  // Scroll to top when the component mounts
+ 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom'; // ✅ Add Link
+import { useNavigate, Link } from 'react-router-dom';
 import './Header.css';
+import { useEffect } from 'react';
 import logo from '../assets/images/hero-logo.png';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  useEffect(() => {
+    window.scrollTo(0, 0); 
+  }, []);
 
   return (
     <header className="navbar">
       <div className="navbar-container">
         {/* Logo */}
-        <Link to="/" className="logo"> {/* ✅ Link to homepage */}
+        <Link to="/" className="logo">
           <img src={logo} alt="MindManthan Logo" className="logo-img" />
         </Link>
 
@@ -24,10 +28,10 @@ function Header() {
           <div className="dropdown">
             <button className="dropbtn">Services</button>
             <div className="dropdown-content">
-              <a href="#web">Web Development</a>
-              <a href="#app">App Development</a>
-              <a href="#seo">SEO & Marketing</a>
-              <a href="#crm">CRM / ERP Solutions</a>
+              <Link to="/services/web-development">Web Development</Link>
+              <Link to="/services/app-development">App Development</Link>
+              <Link to="/services/seo-marketing">SEO & Marketing</Link>
+              <Link to="/services/crm-erp">CRM / ERP Solutions</Link>
             </div>
           </div>
 
@@ -72,7 +76,9 @@ function Header() {
             </div>
           </div>
 
-          <div className="dropdown"><a href="#ourwork">Our Work</a></div>
+          <div className="dropdown">
+            <a href="#ourwork">Our Work</a>
+          </div>
         </nav>
 
         {/* Login / Signup */}

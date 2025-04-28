@@ -2,8 +2,13 @@
 import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import './Body.css';
+import { useEffect } from 'react';
 
 function Body() {
+  useEffect(() => {
+    window.scrollTo(0, 0); 
+  }, []);
+
   return (
     <main className="main-content">
       <section className="hero-section">
