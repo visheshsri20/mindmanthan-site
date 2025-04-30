@@ -117,11 +117,20 @@ Access the frontend at: [http://localhost:5173](http://localhost:5173)
 
 ## 📷 Screenshots
 
-> Add screenshots or screen recordings here
+
 ![image](https://github.com/user-attachments/assets/80da03e7-d274-45c8-a1af-1f8d81b03cf9)
+
 > ![image](https://github.com/user-attachments/assets/5c2d8830-7db3-4a47-b746-bfe838cc3f25)
+> 
 >  ![image](https://github.com/user-attachments/assets/ac408584-1912-4d28-9f3d-66942bfeef4f)
+> 
 ![image](https://github.com/user-attachments/assets/c58d3180-538d-40bc-a78f-0afcba3b812c)
+
+![image](https://github.com/user-attachments/assets/4abdd324-9e87-48b6-8593-6623c8908574)
+
+![image](https://github.com/user-attachments/assets/80450a09-c31b-4386-a672-c7a07c5fc38c)
+
+
 
 
 
