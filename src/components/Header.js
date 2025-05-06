@@ -1,15 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './Header.css';
-import { useEffect } from 'react';
 import logo from '../assets/images/hero-logo.png';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [userName, setUserName] = useState(localStorage.getItem('userName'));
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef();
   const navigate = useNavigate();
+
   useEffect(() => {
-    window.scrollTo(0, 0); 
+    window.scrollTo(0, 0);
+
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userName');
+    setUserName(null);
+    alert('Logged out successfully');
+  };
 
   return (
     <header className="navbar">
@@ -81,10 +100,25 @@ function Header() {
           </div>
         </nav>
 
-        {/* Login / Signup */}
-        <div className="auth-buttons">
-          <button className="auth-btn login" onClick={() => navigate('/login')}>Login</button>
-          <button className="auth-btn signup" onClick={() => navigate('/signup')}>Sign Up</button>
+        {/* Auth Buttons or User Dropdown */}
+        <div className="auth-buttons" ref={dropdownRef}>
+          {userName ? (
+            <div className="user-dropdown">
+              <button className="auth-btn login" onClick={() => setDropdownOpen(!dropdownOpen)}>
+                {userName} ⌄
+              </button>
+              {dropdownOpen && (
+                <div className="dropdown-menu">
+                  <button className="auth-btn logout" onClick={handleLogout}>Logout</button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <>
+              <button className="auth-btn login" onClick={() => navigate('/login')}>Login</button>
+              <button className="auth-btn signup" onClick={() => navigate('/signup')}>Sign Up</button>
+            </>
+          )}
         </div>
 
         {/* Burger Icon for Mobile */}
@@ -97,3 +131,4 @@ function Header() {
 }
 
 export default Header;
+  

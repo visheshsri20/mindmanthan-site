@@ -2,18 +2,53 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebookF, FaTwitter } from 'react-icons/fa';
-import backgroundImage from '../assets/images/contentthird-background.jpg';
 import logo from '../assets/images/hero-logo.png';
 import './signup.css';
 
 export default function SignupPage() {
   const navigate = useNavigate();
 
+  // 🔒 Handle signup form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+
+    // 🎯 Collect user input from form fields
+    const userData = {
+      firstName: form[0].value.trim(),
+      middleName: form[1].value.trim(),
+      surname: form[2].value.trim(),
+      email: form[3].value.trim(),
+      password: form[4].value.trim(),
+    };
+
+    try {
+      // 📡 Send user data to backend API endpoint for signup
+      const response = await fetch('http://localhost:5000/api/signup', {
+        method: 'POST', // HTTP method: create new user
+        headers: { 'Content-Type': 'application/json' }, // Sending JSON
+        body: JSON.stringify(userData), // Convert user object to JSON
+      });
+
+      const result = await response.json(); // 📦 Parse backend response
+
+      // ✅ If backend returns success
+      if (response.ok) {
+        alert('Signup successful!');
+        navigate('/login'); // Redirect to login
+      } else {
+        // ❌ Show backend error message if signup failed
+        alert(result.msg || 'Signup failed!');
+      }
+    } catch (error) {
+      // ❗ Catch unexpected errors (e.g., network)
+      console.error('Signup error:', error);
+      alert('An error occurred. Please try again.');
+    }
+  };
+
   return (
-    <div
-      className="signup-bg"
-      style={{ backgroundImage: `url(${backgroundImage})` }}
-    >
+    <div className="signup-bg">
       <div className="signup-navbar">
         <img src={logo} alt="Company Logo" className="signup-nav-logo" />
         <div className="signup-nav-buttons">
@@ -26,13 +61,13 @@ export default function SignupPage() {
         <h2 className="signup-title">Create Account 👤</h2>
         <p className="signup-subtitle">Sign up to get started with Mind Manthan</p>
 
-        <form className="signup-form">
+        <form className="signup-form" onSubmit={handleSubmit}>
           <input type="text" placeholder="First Name *" required />
           <input type="text" placeholder="Middle Name (Optional)" />
           <input type="text" placeholder="Surname *" required />
           <input type="email" placeholder="Email" required />
           <input type="password" placeholder="Create Password" required />
-          <button className="signup-btn">Register</button>
+          <button type="submit" className="signup-btn">Register</button>
         </form>
 
         <div className="signup-divider">OR</div>
@@ -50,7 +85,8 @@ export default function SignupPage() {
         </div>
 
         <p className="signup-footer">
-          Already have an account? <span className="signup-link" onClick={() => navigate('/login')}>Login</span>
+          Already have an account?{' '}
+          <span className="signup-link" onClick={() => navigate('/login')}>Login</span>
         </p>
       </div>
     </div>

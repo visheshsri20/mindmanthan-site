@@ -1,193 +1,153 @@
 .content {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    background: linear-gradient(to bottom, #09081a, #0a0a1f);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-  }
-  
-  .card {
-    display: flex;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 10px;
-    padding: 2rem;
-    color: #fff;
-    width: fit-content;
-    max-width: 90%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  background: linear-gradient(to bottom, #09081a, #0a0a1f);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Agenda Container */
+.agenda-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 50px;
+  width: 100%;
+}
+
+/* Card Base */
+.card {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 2rem;
+  color: #fff;
+  max-width: 40%;
+  width: fit-content;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+/* Show class applied on scroll */
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card.left {
+  flex-direction: row;
+  align-self: flex-start;
+}
+.card.left.show {
+  animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.card.right {
+  flex-direction: row-reverse;
+  align-self: flex-end;
+}
+.card.right.show {
+  animation: fadeInRight 0.8s ease-out forwards;
+}
+
+.card-content {
+  max-width: 600px;
+}
+
+/* Agenda Image Section */
+.agenda-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 1rem 0;
+  max-width: 2000px;
+  padding-right: 30px;
+}
+
+.agenda-image img {
+  width: 80%;
+  max-width: 500px;
+  height: auto;
+  opacity: 0;
+  animation: drawImage 2s ease-in-out infinite alternate;
+}
+
+.expertise-card {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 2rem;
+  color: #fff;
+  max-width: 40%;
+  width: fit-content;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+  align-self: flex-end;
+}
+
+.expertise-card.show {
+  animation: fadeInRight 0.8s ease-out forwards;
+}
+
+/* Drawing Animation */
+@keyframes drawImage {
+  0% {
     opacity: 0;
+    filter: grayscale(100%) blur(3px);
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.5;
+    filter: grayscale(50%) blur(1px);
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    filter: grayscale(0%) blur(0);
+    transform: scale(1);
+  }
+}
+
+/* Slide Animations */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
     transform: translateX(0);
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-  }
-  
-  .card.left {
-    flex-direction: row;
-    align-self: flex-start;
-    animation-name: slideInLeft;
-  }
-  
-  .card.right {
-    flex-direction: row-reverse;
-    align-self: flex-end;
-    animation-name: slideInRight;
-  }
-  
-  .card-content {
-    max-width: 600px;
-  }
-  
-  @keyframes slideInLeft {
-    from {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-  }
-  
-  @keyframes slideInRight {
-    from {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
- /* ✅ Universal Responsive Enhancements for All Screens */
-@media (max-width: 768px) {
-  .card,
-  .card.left,
-  .card.right,
-  .content-wrapper,
-  .content-text,
-  .content-image,
-  .service-card,
-  .stat-card,
-  .reason-card,
-  .faq-item,
-  .hero,
-  .logo-row {
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: auto !important;
-  }
-
-  .logo-row {
-    flex-wrap: wrap;
-    gap: 30px;
-  }
-
-  .tech-logo {
-    width: 80px !important;
-  }
-
-  .hero h1,
-  .reason-title,
-  .section-title {
-    font-size: 1.8rem !important;
-  }
-
-  .card-content,
-  .faq-answer,
-  .service-card p,
-  .section-description,
-  .stat-card p {
-    font-size: 0.95rem !important;
-  }
-
-  .stat-card .count,
-  .hero .highlight {
-    font-size: 2.5rem !important;
-  }
-
-  .read-more {
-    font-size: 0.85rem;
-    padding: 0.5rem 1rem;
-  }
-
-  .faq-title,
-  .client-title {
-    font-size: 1.8rem !important;
-  }
-
-  .faq-toggle {
-    font-size: 1.3rem;
-  }
-
-  .gif-glow-wrapper img {
-    max-width: 100% !important;
-  }
-
-  .hero-logo {
-    width: 160px !important;
-    margin-bottom: 1rem;
-  }
-
-  .service-card {
-    max-width: 100% !important;
-    flex: 1 1 100% !important;
-  }
-
-  .reason-grid {
-    flex-direction: column !important;
-    gap: 1.5rem !important;
-  }
-
-  .faq-answer {
-    text-align: left;
   }
 }
 
-/* Tablet View Tweaks */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .logo-row {
-    gap: 40px;
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
   }
-
-  .tech-logo {
-    width: 90px;
-  }
-
-  .card-content {
-    font-size: 1rem;
-  }
-
-  .hero h1,
-  .section-title,
-  .reason-title {
-    font-size: 2.2rem;
-  }
-
-  .stat-card .count {
-    font-size: 3rem;
-  }
-
-  .service-card {
-    flex: 1 1 45%;
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
-/* Maintains all base styles, adds only responsive control */
-
+/* Tech Logo Showcase */
 .tech-logo-showcase {
   text-align: center;
   margin: 40px 0;
@@ -198,7 +158,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 60px; /* Controls the space between logos */
+  gap: 60px;
   margin-top: 20px;
   transition: opacity 1s ease-in-out;
 }
@@ -212,4 +172,65 @@
 
 .tech-logo:hover {
   transform: scale(1.1);
+}
+
+/* ===========================
+   Responsive Controls
+=========================== */
+@media (max-width: 768px) {
+  .content,
+  .agenda-container,
+  .card,
+  .card.left,
+  .card.right,
+  .card-content,
+  .agenda-image {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: auto !important;
+  }
+
+  .agenda-image {
+    padding: 0 !important;
+    margin-top: 1rem;
+  }
+
+  .tech-logo {
+    width: 80px !important;
+  }
+
+  .logo-row {
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .card-content {
+    font-size: 0.95rem !important;
+  }
+
+  .card h2,
+  .section-title {
+    font-size: 1.8rem !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .logo-row {
+    gap: 40px;
+  }
+
+  .tech-logo {
+    width: 90px;
+  }
+
+  .card-content {
+    font-size: 1rem;
+  }
+
+  .card h2 {
+    font-size: 2.2rem;
+  }
 }
