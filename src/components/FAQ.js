@@ -49,7 +49,32 @@ function FAQ() {
           </div>
         ))}
       </div>
-    </section>
+      
+      <section className="about-footer">
+    <h3>Let’s Build the Future Together</h3>
+    <p>
+      Have a project in mind? We’re just one call away. Let’s connect and create something incredible.
+    </p>
+    <p><strong>Email:</strong> info.mindmanthan@gmail.com</p>
+    <p><strong>Phone:</strong> +91 7011502461</p>
+  
+    <form
+      action="mailto:info.mindmanthan@gmail.com"
+      method="POST"
+      encType="text/plain"
+      className="contact-form"
+    >
+      <label htmlFor="email">Email:</label>
+      <input type="email" name="email" id="email" required placeholder="Your email" />
+  
+      <label htmlFor="message">Your Query:</label>
+      <textarea name="message" id="message" rows="5" required placeholder="Write your query here..."></textarea>
+  
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+  </section>
+ 
   );
 }
 

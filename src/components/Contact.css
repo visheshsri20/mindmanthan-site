@@ -1,0 +1,77 @@
+/* Hero Section */
+.contact-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 70vh;
+    background-color: transparent;
+    padding: 4rem 2rem;
+    color: #fff;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .contact-hero::before {
+    content: '';
+    flex: 1;
+    background-image: url('../assets/images/contact-illustration.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 400px;
+    max-width: 600px;
+  }
+  
+  .contact-hero-content {
+    flex: 1;
+    max-width: 600px;
+    padding: 1rem 2rem;
+    text-align: left;
+    margin: auto;
+  }
+  
+  .contact-hero-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    background: linear-gradient(90deg, #00ffff, #007bff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  }
+  
+  .contact-hero-content p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: #ccc;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Responsive Fix */
+  @media (max-width: 768px) {
+    .contact-hero {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .contact-hero::before {
+      order: 2;
+      margin-top: 2rem;
+      width: 100%;
+      background-position: center;
+    }
+  
+    .contact-hero-content {
+      order: 1;
+      padding: 1rem;
+    }
+  
+    .contact-hero-content h1 {
+      font-size: 2.2rem;
+    }
+  
+    .contact-hero-content p {
+      font-size: 1rem;
+    }
+  }
+  

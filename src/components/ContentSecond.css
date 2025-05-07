@@ -191,4 +191,74 @@
   }
 }
 
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.service-card {
+  background: #1c1c30;
+  padding: 20px;
+  border-radius: 12px;
+  width: 300px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 1;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.expanded-card {
+  background: #1c1c30;
+  padding: 40px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  animation: expandFadeIn 0.4s ease forwards;
+}
+
+.read-more {
+  background: none;
+  border: none;
+  color: #4faeff;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: color 0.2s ease;
+}
+
+.read-more:hover {
+  color: #84cfff;
+}
+
+.more-description {
+  margin-top: 10px;
+  color: #ccc;
+  line-height: 1.6;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes expandFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 /* Maintains all base styles, adds only responsive control */

@@ -1,24 +1,31 @@
+// src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+// Layout Components
 import Header from './components/Header';
+import Footer from './components/Footer';
+
+// Main Sections for Home Page
 import Body from './components/Body';
 import Content from './components/Content';
 import ContentSecond from './components/ContentSecond';
 import ContentThird from './components/ContentThird';
-import Footer from './components/Footer';
 import FAQ from './components/FAQ';
+
+// Pages
+import About from './components/About';
+import Contact from './components/Contact';
+import WebDevelopment from './components/WebDev';
 import LoginSignupPage from './components/login';
 import SignupPage from './components/signup';
-import About from './components/About';
-import WebDevelopment from './components/WebDev';
 
 function App() {
   return (
     <Router>
       <Routes>
 
-        {/* Home Route */}
+        {/* Home Page */}
         <Route
           path="/"
           element={
@@ -46,7 +53,19 @@ function App() {
           }
         />
 
-        {/* Web Development Service Page */}
+        {/* Contact Page */}
+        <Route
+          path="/contact"
+          element={
+            <>
+              <Header />
+              <Contact />
+              <Footer />
+            </>
+          }
+        />
+
+        {/* Web Development Services Page */}
         <Route
           path="/services/web-development"
           element={
@@ -58,7 +77,7 @@ function App() {
           }
         />
 
-        {/* Login & Signup */}
+        {/* Authentication Pages */}
         <Route path="/login" element={<LoginSignupPage />} />
         <Route path="/signup" element={<SignupPage />} />
 
